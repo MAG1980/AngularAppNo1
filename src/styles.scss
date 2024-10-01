@@ -2,3 +2,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+layer base {
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+}
+
+.first-bg-color {
+  @apply bg-orange-400;
+}
+
+.second-bg-color {
+  @apply bg-fuchsia-950;
+}
+
+.third-bg-color {
+  @apply bg-orange-300;
+}
+
+.font-color-one {
+  @apply text-yellow-200;
+}
