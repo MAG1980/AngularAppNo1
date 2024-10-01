@@ -1,0 +1,15 @@
+.navbar {
+  @apply flex justify-between w-full;
+}
+
+.navbar-right {
+  @apply flex sm:ml-6 sm:block;
+}
+
+.menu-item {
+  @apply rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white
+}
+
+.menu-item-active {
+  @apply bg-gray-900  text-white
+}
