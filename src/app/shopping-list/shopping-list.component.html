@@ -1,21 +1,23 @@
 <div>
   <app-shopping-edit/>
   <hr>
-  <div class="shopping-list-item second-bg-color p-4 my-2.5  rounded-md">
+  <div class="second-bg-color p-4 my-2.5 rounded-md">
     <button type="button">Shopping List</button>
   </div>
-  <div class="first-bg-color p-4 my-2.5  rounded-md">
+  <div class="shopping-list-item first-bg-color">
     <button type="button">Shopping List</button>
   </div>
-  <div class="shopping-list-item first-bg-color p-4 my-2.5  rounded-md">
+  <div class="shopping-list-item">
     <button type="button">Shopping List</button>
   </div>
-  <div
-    class="shopping-list-item third-bg-color p-4 my-2.5  rounded-md"
+<ul class="shopping-list-group">
+  <li
+    class="shopping-list-item"
     *ngFor="let ingredient of ingredients"
   >
     <button type="button">
       {{ ingredient.name }} {{ ingredient.amount }}
     </button>
-  </div>
+  </li>
+</ul>
 </div>

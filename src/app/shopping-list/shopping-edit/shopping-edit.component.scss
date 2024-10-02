@@ -1,0 +1,10 @@
+.shopping-edit {
+  color: black;
+
+  input {
+    outline: 1px solid orange;
+    padding: 5px;
+    @apply rounded
+  }
+}
+
