@@ -10,7 +10,12 @@
   <div class="shopping-list-item first-bg-color p-4 my-2.5  rounded-md">
     <button type="button">Shopping List</button>
   </div>
-  <div class="shopping-list-item third-bg-color p-4 my-2.5  rounded-md">
-    <button type="button">Ingredient</button>
+  <div
+    class="shopping-list-item third-bg-color p-4 my-2.5  rounded-md"
+    *ngFor="let ingredient of ingredients"
+  >
+    <button type="button">
+      {{ ingredient.name }} {{ ingredient.amount }}
+    </button>
   </div>
 </div>
