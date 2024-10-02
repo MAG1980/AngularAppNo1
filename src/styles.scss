@@ -27,3 +27,36 @@ layer base {
 .font-color-one {
   @apply text-yellow-200;
 }
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+
+.btn-first {
+  @apply bg-orange-400 text-yellow-200;
+  &:hover {
+    @apply bg-orange-500;
+  }
+}
+
+.btn-second {
+  @apply bg-fuchsia-950 text-yellow-200;
+  &:hover {
+    @apply bg-fuchsia-500;
+  }
+}
+
+.recipe-item {
+  @apply third-bg-color p-4 my-1 rounded-md;
+  &:hover {
+    @apply first-bg-color;
+  }
+}
