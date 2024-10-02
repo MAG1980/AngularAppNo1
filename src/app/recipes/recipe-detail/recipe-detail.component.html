@@ -1,1 +1,50 @@
-<p>recipe-detail works!</p>
+<div class="grid grid-rows-5">
+  <img class="h-full object-cover" src="https://placehold.co/300x200" alt="">
+  <h3>Recipe Name</h3>
+  <div class="btn-group">
+    <div class="relative ml-3">
+      <div class="menu-item dropdown">
+        <button
+          class="btn btn-first dropdown-toggle">
+          Manage Recipe
+        </button>
+      </div>
+
+      <!--
+        Dropdown menu, show/hide based on menu state.
+
+        Entering: "transition ease-out duration-100"
+          From: "transform opacity-0 scale-95"
+          To: "transform opacity-100 scale-100"
+        Leaving: "transition ease-in duration-75"
+          From: "transform opacity-100 scale-100"
+          To: "transform opacity-0 scale-95"
+      -->
+      <ul
+        class="dropdown-menu"
+        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+        <!-- Active: "bg-gray-100", Not Active: "" -->
+        <li>
+          <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+             id="user-menu-item-0">
+            To Shopping List</a>
+        </li>
+        <li>
+          <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+             id="user-menu-item-1">
+            Edit Recipe
+          </a>
+        </li>
+        <li>
+          <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+             id="user-menu-item-2">
+            Delete Recipe
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div>Description</div>
+  <div>Ingredients</div>
+</div>
