@@ -1,9 +1,15 @@
-<main class="font-color-one">
-  <app-header/>
+<main  class="font-color-one">
+  <app-header (changeCurrentSection)="setCurrentSection($event)"/>
   <div class="container mx-auto px-5 py-5">
     <div class="flex justify-between text-center gap-x-7">
-      <app-shopping-list class="basis-2/5"/>
-      <app-recipes class="basis-3/5"/>
+      <app-shopping-list
+        class="basis-2/5"
+        *ngIf="currentSection === 'shoppingList'"
+      />
+      <app-recipes
+        class="basis-3/5"
+        *ngIf="currentSection === 'recipes'"
+      />
     </div>
   </div>
   <app-buttons-area/>

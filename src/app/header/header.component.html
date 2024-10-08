@@ -6,12 +6,19 @@
     <div class="navbar sm:ml-6 sm:block">
       <ul class="flex space-x-4">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <li class="menu-item menu-item-active" aria-current="page">
-          <a href="#">Recipes</a>
+        <li
+          class="menu-item"
+          aria-current="page"
+          [ngClass]="currentSection === 'recipes'? 'menu-item-active':''"
+        >
+          <a href="#" data-section="recipes" (click)="setCurrentSection($event)">Recipes</a>
         </li>
-        <li class="menu-item"
-            aria-current="page">
-          <a href="#">Shopping List</a>
+        <li
+          class="menu-item"
+          aria-current="page"
+          [ngClass]="currentSection === 'shoppingList'? 'menu-item-active':''"
+        >
+          <a href="#" data-section="shoppingList" (click)="setCurrentSection($event)">Shopping List</a>
         </li>
       </ul>
       <ul class="navbar-right">
