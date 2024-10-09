@@ -11,14 +11,15 @@
           aria-current="page"
           [ngClass]="currentSection === 'recipes'? 'menu-item-active':''"
         >
-          <a href="#" data-section="recipes" (click)="setCurrentSection($event)">Recipes</a>
+          <a class="menu-item-link" href="#" data-section="recipes" (click)="setCurrentSection($event)">Recipes</a>
         </li>
         <li
           class="menu-item"
           aria-current="page"
           [ngClass]="currentSection === 'shoppingList'? 'menu-item-active':''"
         >
-          <a href="#" data-section="shoppingList" (click)="setCurrentSection($event)">Shopping List</a>
+          <a class="menu-item-link" href="#" data-section="shoppingList" (click)="setCurrentSection($event)">Shopping
+            List</a>
         </li>
       </ul>
       <ul class="navbar-right">
