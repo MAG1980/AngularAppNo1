@@ -2,17 +2,9 @@
   <div class="recipe-item xs:grid-cols-12">
     <button class="recipe-item-button">New Recipe</button>
   </div>
-
-  <a class="grid grid-cols-2 gap-x-2 recipe-item" href="#" *ngFor="let recipe of recipes">
-    <div class="">
-      <h4>{{ recipe.name }}</h4>
-      <p class="">{{ recipe.description }}</p>
-    </div>
-    <span class="">
-        <img class="h-full object-cover" [src]="recipe.imagePath" alt="{{ recipe.name }}">
-      </span>
-  </a>
-  <app-recipe-item/>
-
+  <app-recipe-item
+    *ngFor="let recipeElement of recipes"
+    [recipe]="recipeElement"
+  />
 </div>
 
