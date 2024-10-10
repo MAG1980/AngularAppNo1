@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MenuNavigationPayload } from "../common/MenuNavigationPayload.type";
 import { NgClass } from "@angular/common";
+import { DropdownDirective } from "../shared/directives/dropdown.directive.";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    DropdownDirective
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

@@ -2,11 +2,19 @@
   <img class="h-full object-cover" src="https://placehold.co/300x200" alt="">
   <h3>Recipe Name</h3>
   <div class="btn-group">
-    <div class="relative ml-3">
-      <div class="menu-item dropdown">
+    <div
+      class="dropdown closed relative flex ml-3"
+      appDropdown
+    >
+      <div class="menu-item">
         <button
-          class="btn btn-first dropdown-toggle">
+          class="flex items-center btn btn-first dropdown-toggle">
           Manage Recipe
+          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 4 4 4-4"/>
+          </svg>
         </button>
       </div>
 
@@ -21,7 +29,7 @@
           To: "transform opacity-0 scale-95"
       -->
       <ul
-        class="dropdown-menu"
+        class="dropdown-menu mt-16"
         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
         <!-- Active: "bg-gray-100", Not Active: "" -->
         <li>
@@ -43,7 +51,6 @@
         </li>
       </ul>
     </div>
-
   </div>
   <div>Description</div>
   <div>Ingredients</div>

@@ -77,7 +77,33 @@ layer base {
   }
 }
 
-.dropdown-menu{
-  @apply absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
+.dropdown {
+  &-menu {
+    @apply transition-all opacity-100 scale-100 absolute right-0 z-10 w-full origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+    animation: entering ease-out .1s;
+  }
 }
 
+.closed .dropdown-menu {
+  @apply opacity-0 scale-95;
+  animation: leaving ease-in .075s;
+}
+
+
+@keyframes entering {
+  from {
+    @apply transform opacity-0 scale-95
+  }
+  to {
+    @apply transform opacity-100 scale-100
+  }
+}
+
+@keyframes leaving {
+  from {
+    @apply transform opacity-100 scale-100
+  }
+  to {
+    @apply transform opacity-0 scale-95
+  }
+}
