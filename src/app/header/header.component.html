@@ -23,45 +23,36 @@
         </li>
       </ul>
 
-      <div
+      <ul
         class="navbar-right dropdown"
         appDropdown
       >
-        <a class="dropdown-toggle menu-item menu-item-link" href="#">
-          Manage
-          <svg class="angle-up w-5 h-5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-               width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                  d="m5 15 7-7 7 7"/>
-          </svg>
-        </a>
+        <li class="dropdown-toggle menu-item">
+          <a class=" menu-item-link" href="#">
+            Manage
+            <svg class="angle-up w-5 h-5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                 width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="m5 15 7-7 7 7"/>
+            </svg>
+          </a>
+        </li>
 
-        <!--
-          Dropdown menu, show/hide based on menu state.
-
-          Entering: "transition ease-out duration-100"
-            From: "transform opacity-0 scale-95"
-            To: "transform opacity-100 scale-100"
-          Leaving: "transition ease-in duration-75"
-            From: "transform opacity-100 scale-100"
-            To: "transform opacity-0 scale-95"
-        -->
-
-        <ul
-          class="dropdown-menu pt-2 top-6"
-          role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-          <li>
-            <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-               id="user-menu-item-0">Save Data</a>
-          </li>
-          <li>
-            <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-               id="user-menu-item-1">
-              Fetch Data
-            </a>
-          </li>
-        </ul>
-      </div>
+        <li class="dropdown-menu pt-2 top-6">
+          <ul role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <li>
+              <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                 id="user-menu-item-0">Save Data</a>
+            </li>
+            <li>
+              <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                 id="user-menu-item-1">
+                Fetch Data
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
