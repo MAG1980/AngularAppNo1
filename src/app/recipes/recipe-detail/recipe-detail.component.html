@@ -1,22 +1,21 @@
-<div class="grid grid-rows-5">
+<div class="grid grid-rows-5 justify-center items-center">
   <img class="h-full object-cover" src="https://placehold.co/300x200" alt="">
   <h3>Recipe Name</h3>
   <div class="btn-group">
     <div
-      class="dropdown relative flex ml-3"
+      class="dropdown flex relative ml-3 min-w-44"
       appDropdown
     >
-      <div class="menu-item">
-        <button
-          class="flex items-center btn btn-first dropdown-toggle">
-          Manage Recipe
-          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-               viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="m1 1 4 4 4-4"/>
-          </svg>
-        </button>
-      </div>
+      <button
+        class="dropdown-toggle menu-item flex grow justify-between items-center btn btn-first">
+        <p class="flex grow justify-center">Manage Recipe</p>
+        <svg class="angle-up h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+               fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                d="m5 15 7-7 7 7"/>
+        </svg>
+      </button>
+
 
       <!--
         Dropdown menu, show/hide based on menu state.
@@ -29,7 +28,7 @@
           To: "transform opacity-0 scale-95"
       -->
       <ul
-        class="dropdown-menu mt-16"
+        class="dropdown-menu mt-14"
         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
         <!-- Active: "bg-gray-100", Not Active: "" -->
         <li>
