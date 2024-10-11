@@ -5,14 +5,14 @@
     </div>
     <div class="navbar sm:ml-6 sm:block">
       <ul class="flex space-x-4">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <li
-          class="menu-item"
-          aria-current="page"
-          [ngClass]="currentSection === 'recipes'? 'menu-item-active':''"
-        >
-          <a class="menu-item-link" href="#" data-section="recipes" (click)="setCurrentSection($event)">Recipes</a>
-        </li>
+              <li
+                class="menu-item"
+                aria-current="page"
+                [ngClass]="currentSection === 'recipes'? 'menu-item-active':''"
+              >
+                <a class="menu-item-link" href="#" data-section="recipes"
+                   (click)="setCurrentSection($event)">Recipes</a>
+              </li>
         <li
           class="menu-item"
           aria-current="page"
@@ -23,20 +23,19 @@
         </li>
       </ul>
 
-      <ul
-        class="navbar-right dropdown relative ml-3"
+      <div
+        class="navbar-right dropdown"
         appDropdown
       >
-        <li class="menu-item">
-          <a class="menu-item-link" href="#">
-            Manage
-            <svg class="angle-up w-5 h-5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                 width="24" height="24" fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                    d="m5 15 7-7 7 7"/>
-            </svg>
-          </a>
-        </li>
+        <a class="dropdown-toggle menu-item menu-item-link" href="#">
+          Manage
+          <svg class="angle-up w-5 h-5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+               width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                  d="m5 15 7-7 7 7"/>
+          </svg>
+        </a>
+
         <!--
           Dropdown menu, show/hide based on menu state.
 
@@ -47,24 +46,22 @@
             From: "transform opacity-100 scale-100"
             To: "transform opacity-0 scale-95"
         -->
-          <ul
-            class="dropdown-menu mt-9"
-            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-            <!-- Active: "bg-gray-100", Not Active: "" -->
-            <li>
-              <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                 id="user-menu-item-0">Save Data</a>
-            </li>
-            <li>
-              <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                 id="user-menu-item-1">
-                Fetch Data
-              </a>
-            </li>
-          </ul>
-      </ul>
 
-
+        <ul
+          class="dropdown-menu pt-2 top-6"
+          role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+          <li>
+            <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+               id="user-menu-item-0">Save Data</a>
+          </li>
+          <li>
+            <a href="#" class="menu-item block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+               id="user-menu-item-1">
+              Fetch Data
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

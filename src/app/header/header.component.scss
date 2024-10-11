@@ -1,20 +1,14 @@
 .navbar {
   @apply flex justify-between items-center w-full;
   &-brand{
-    @apply p-2
+    @apply p-2;
+    &:hover{
+      @apply text-white
+    }
   }
 }
 
 .navbar-right {
-  @apply inline-flex sm:ml-6 sm:block;
+  @apply sm:ml-6 sm:block;
 }
 
-.menu-item {
-  @apply flex rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white;
-  &-link{
-    @apply flex items-center px-3 py-2;
-  }
-  &-active{
-    @apply bg-gray-900  text-white;
-  }
-}
