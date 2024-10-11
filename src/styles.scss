@@ -80,7 +80,7 @@ layer base {
 .dropdown {
   @apply flex relative ;
   &-toggle {
-    @apply bg-orange-400 text-white z-20;
+    @apply bg-orange-400 text-white z-20 relative;
   }
   &-menu {
     @apply transition-all opacity-100 scale-100 absolute right-0 z-0 w-full origin-top-right rounded-b-md third-bg-color shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
@@ -111,7 +111,7 @@ layer base {
 }
 
 .closed .dropdown-toggle{
-  @apply text-yellow-200 bg-orange-300;
+  @apply text-yellow-200 bg-orange-300 hover:bg-orange-500;
 }
 
 .closed .angle-up {
