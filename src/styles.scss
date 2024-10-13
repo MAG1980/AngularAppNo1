@@ -80,10 +80,10 @@ layer base {
 .dropdown {
   @apply flex relative ;
   &-toggle {
-    @apply bg-orange-400 text-white z-20 relative;
+    @apply text-yellow-200 bg-orange-300 hover:bg-orange-500 z-20 relative;
   }
   &-menu {
-    @apply transition-all opacity-100 scale-100 absolute right-0 z-0 w-full origin-top-right rounded-b-md third-bg-color shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+    @apply transition-all opacity-0 scale-95 absolute right-0 z-0 w-full origin-top-right rounded-b-md third-bg-color shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
     animation: entering ease-out .1s;
 
     &-item {
@@ -95,8 +95,8 @@ layer base {
   }
 }
 
-.closed .dropdown-menu {
-  @apply opacity-0 scale-95;
+.opened .dropdown-menu {
+  @apply opacity-100 scale-100;
   animation: leaving ease-in .075s;
 }
 
@@ -110,11 +110,11 @@ layer base {
   }
 }
 
-.closed .dropdown-toggle{
-  @apply text-yellow-200 bg-orange-300 hover:bg-orange-500;
+.opened .dropdown-toggle{
+  @apply bg-orange-400 text-white hover:bg-orange-500;
 }
 
-.closed .angle-up {
+.opened .angle-down {
   @apply transform rotate-180
 }
 
