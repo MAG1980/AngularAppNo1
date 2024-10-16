@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DropdownDirective } from "../../shared/directives/dropdown.directive.";
+import { Recipe } from "../recipe.model";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,5 +12,5 @@ import { DropdownDirective } from "../../shared/directives/dropdown.directive.";
   styleUrl: './recipe-detail.component.scss'
 })
 export class RecipeDetailComponent {
-
+  @Input() recipe: Recipe | null = null
 }
