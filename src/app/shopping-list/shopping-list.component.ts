@@ -3,13 +3,15 @@ import { ShoppingEditComponent } from "./shopping-edit/shopping-edit.component";
 import { Ingredient } from "../shared/ingredient.model";
 import { NgForOf } from "@angular/common";
 import { ShoppingListService } from "./shopping-list.service";
+import { ShoppingListItemComponent } from "./shopping-list-item/shopping-list-item.component";
 
 @Component({
   selector: 'app-shopping-list',
   standalone: true,
   imports: [
     ShoppingEditComponent,
-    NgForOf
+    NgForOf,
+    ShoppingListItemComponent
   ],
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.scss'
