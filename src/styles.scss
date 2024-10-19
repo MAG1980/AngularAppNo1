@@ -71,7 +71,7 @@ layer base {
 }
 
 .recipe-item, .shopping-list-item{
-  @apply third-bg-color p-4 my-2.5 rounded-md;
+  @apply third-bg-color p-4 rounded-md;
   &:hover {
     @apply first-bg-color;
   }
@@ -134,4 +134,8 @@ layer base {
   to {
     @apply transform opacity-0 scale-95
   }
+}
+
+.recipe-detail-placeholder{
+  @apply col-span-6 flex justify-center items-center font-bold py-4 px-4 rounded bg-orange-400 text-yellow-200;
 }
