@@ -8,6 +8,7 @@
     <li
       class="shopping-list-item mt-2.5"
       *ngFor="let ingredient of ingredients"
+      (click) = "selectIngredient(ingredient)"
     >
       <div class="flex justify-between px-8">
         <div>{{ ingredient.name }}</div>
