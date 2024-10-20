@@ -33,10 +33,16 @@
             </a>
           </li>
           <li class="dropdown-menu-item">
-            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-               id="user-menu-item-2">
+            <button
+              type="button"
+              class="menu-item block px-4 py-2 text-sm"
+              role="menuitem"
+              tabindex="-1"
+              id="user-menu-item-2"
+            (click)="deleteRecipe()"
+            >
               Delete Recipe
-            </a>
+            </button>
           </li>
         </ul>
       </div>
@@ -46,14 +52,14 @@
     <h4 class="text-lg mb-2">Description</h4>
     <p class="indent-5 text-justify">{{ recipe?.description }}</p>
   </div>
-<div class="pt-4">
-  <h3 class="recipe-detail-ingredients-heading">Ingredients</h3>
-  <ul>
-    <li
-      [ngClass]="{'ingredient-list-item mt-1':true}"
-      *ngFor="let recipeIngredient of recipe?.ingredients">
-      <app-shopping-list-item [ingredient]="recipeIngredient"/>
-    </li>
-  </ul>
-</div>
+  <div class="pt-4">
+    <h3 class="recipe-detail-ingredients-heading">Ingredients</h3>
+    <ul>
+      <li
+        [ngClass]="{'ingredient-list-item mt-1':true}"
+        *ngFor="let recipeIngredient of recipe?.ingredients">
+        <app-shopping-list-item [ingredient]="recipeIngredient"/>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -21,12 +21,19 @@ export class RecipeService {
     )
   ];
 
-  recipeSelected = new EventEmitter<Recipe>()
+  recipeSelected = new EventEmitter<Recipe|null>()
+  recipesIsChanged = new EventEmitter<Recipe[]>()
 
   constructor() { }
 
   getRecipes() {
     //Применение метода slice() для создания копии массива
     return this.recipes.slice();
+  }
+
+  deleteRecipe(recipe:Recipe){
+    this.recipes.splice(this.recipes.indexOf(recipe), 1)
+    this.recipesIsChanged.emit(this.recipes.slice())
+    this.recipeSelected.emit(null)
   }
 }

@@ -3,6 +3,7 @@ import { DropdownDirective } from "../../shared/directives/dropdown.directive.";
 import { Recipe } from "../recipe.model";
 import { ShoppingListItemComponent } from "../../shopping-list/shopping-list-item/shopping-list-item.component";
 import { NgClass, NgForOf } from "@angular/common";
+import { RecipeService } from "../recipe.service";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -18,4 +19,11 @@ import { NgClass, NgForOf } from "@angular/common";
 })
 export class RecipeDetailComponent {
   @Input() recipe: Recipe | null = null
+  constructor(private recipeService: RecipeService) {}
+
+  deleteRecipe(){
+    if(this.recipe){
+      this.recipeService.deleteRecipe(this.recipe)
+    }
+  }
 }

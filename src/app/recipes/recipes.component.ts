@@ -20,9 +20,11 @@ import { NgIf } from "@angular/common";
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe | null = null
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService) {
+    this.recipeService.recipeSelected.subscribe((recipe) => {this.selectedRecipe = recipe})
+  }
 
   ngOnInit() {
-    this.recipeService.recipeSelected.subscribe((recipe) => {this.selectedRecipe = recipe})
+
   }
 }
