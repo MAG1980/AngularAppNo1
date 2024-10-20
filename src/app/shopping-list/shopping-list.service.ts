@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from "../shared/ingredient.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShoppingListService {
   private ingredients: Ingredient[] = [new Ingredient("Apples", 5), new Ingredient("Tomatoes", 10)];
@@ -22,6 +22,10 @@ export class ShoppingListService {
     this.ingredientsIsChanged.emit(this.ingredients)
   }
 
+  addIngredients(ingredients: Ingredient[]) {
+    this.ingredients.push(...ingredients)
+  }
+
   setSelectedIngredient(ingredient: Ingredient) {
     this.selectedIngredient = ingredient
     this.selectedIngredientIsChanged.emit(this.selectedIngredient)
@@ -31,5 +35,6 @@ export class ShoppingListService {
   deleteIngredient() {
     this.ingredients = this.ingredients.filter((ingredient) => ingredient.name !== this.selectedIngredient?.name)
     this.ingredientsIsChanged.emit(this.ingredients)
+    console.log({ingredients: this.ingredients})
   }
 }

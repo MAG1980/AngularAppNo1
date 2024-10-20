@@ -19,11 +19,18 @@ import { RecipeService } from "../recipe.service";
 })
 export class RecipeDetailComponent {
   @Input() recipe: Recipe | null = null
+
   constructor(private recipeService: RecipeService) {}
 
-  deleteRecipe(){
-    if(this.recipe){
+  deleteRecipe() {
+    if (this.recipe) {
       this.recipeService.deleteRecipe(this.recipe)
+    }
+  }
+
+  addToShoppingList() {
+    if (this.recipe?.ingredients) {
+      this.recipeService.addToShoppingList(this.recipe.ingredients)
     }
   }
 }

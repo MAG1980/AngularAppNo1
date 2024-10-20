@@ -22,15 +22,27 @@
           role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
           <!-- Active: "bg-gray-100", Not Active: "" -->
           <li class="dropdown-menu-item">
-            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-               id="user-menu-item-0">
-              To Shopping List</a>
+            <button
+              type="button"
+              class="menu-item block px-4 py-2 text-sm"
+              role="menuitem"
+              tabindex="-1"
+              id="user-menu-item-0"
+              (click)="addToShoppingList()"
+            >
+              To Shopping List
+            </button>
           </li>
           <li class="dropdown-menu-item">
-            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-               id="user-menu-item-1">
+            <button
+              type="button"
+              class="menu-item block px-4 py-2 text-sm"
+              role="menuitem"
+              tabindex="-1"
+              id="user-menu-item-1"
+            >
               Edit Recipe
-            </a>
+            </button>
           </li>
           <li class="dropdown-menu-item">
             <button
@@ -39,7 +51,7 @@
               role="menuitem"
               tabindex="-1"
               id="user-menu-item-2"
-            (click)="deleteRecipe()"
+              (click)="deleteRecipe()"
             >
               Delete Recipe
             </button>

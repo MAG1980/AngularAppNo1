@@ -15,8 +15,7 @@ import { ShoppingListItemComponent } from "./shopping-list-item/shopping-list-it
     NgClass
   ],
   templateUrl: './shopping-list.component.html',
-  styleUrl: './shopping-list.component.scss',
-  providers: [ShoppingListService]
+  styleUrl: './shopping-list.component.scss'
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = []

@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
 
 @Injectable({
   providedIn: 'root'
@@ -21,19 +22,24 @@ export class RecipeService {
     )
   ];
 
-  recipeSelected = new EventEmitter<Recipe|null>()
+  recipeSelected = new EventEmitter<Recipe | null>()
   recipesIsChanged = new EventEmitter<Recipe[]>()
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   getRecipes() {
     //Применение метода slice() для создания копии массива
     return this.recipes.slice();
   }
 
-  deleteRecipe(recipe:Recipe){
+  deleteRecipe(recipe: Recipe) {
     this.recipes.splice(this.recipes.indexOf(recipe), 1)
     this.recipesIsChanged.emit(this.recipes.slice())
     this.recipeSelected.emit(null)
+  }
+
+  addToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingListService.addIngredients(ingredients)
+    console.log({ingredients})
   }
 }
