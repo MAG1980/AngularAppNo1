@@ -1,9 +1,9 @@
 <div class="grid grid-rows-8 justify-center items-center">
   <img class="row-span-4 h-full object-cover" [src]="recipe?.imagePath" alt="{{recipe?.name}}">
-  <h3>{{ recipe?.name }}</h3>
+  <h3 class="recipe-detail-heading">{{ recipe?.name }}</h3>
   <div class="btn-group">
     <div
-      class="dropdown ml-3 min-w-44"
+      class="dropdown min-w-44"
       appDropdown
     >
       <button
@@ -40,6 +40,13 @@
       </ul>
     </div>
   </div>
-  <div>{{ recipe?.description }}</div>
-  <div>Ingredients</div>
+  <div class="bg-gray-300 my-2 py-4 px-2">{{ recipe?.description }}</div>
+  <div class="recipe-detail-ingredients-heading">Ingredients</div>
+  <ul>
+    <li
+      [ngClass]="{'ingredient-list-item mt-1':true}"
+      *ngFor="let recipeIngredient of recipe?.ingredients">
+      <app-shopping-list-item [ingredient]="recipeIngredient"/>
+    </li>
+  </ul>
 </div>

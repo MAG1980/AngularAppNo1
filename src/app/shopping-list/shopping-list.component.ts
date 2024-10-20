@@ -15,7 +15,8 @@ import { ShoppingListItemComponent } from "./shopping-list-item/shopping-list-it
     NgClass
   ],
   templateUrl: './shopping-list.component.html',
-  styleUrl: './shopping-list.component.scss'
+  styleUrl: './shopping-list.component.scss',
+  providers: [ShoppingListService]
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = []
@@ -27,7 +28,7 @@ export class ShoppingListComponent implements OnInit {
     })
     this.shoppingListService.selectedIngredientIsChanged.subscribe((ingredient) => {
       this.selectedIngredient = ingredient
-      console.log({selectedIngredient: this.selectedIngredient})
+      console.log({ selectedIngredient: this.selectedIngredient })
     })
   }
 

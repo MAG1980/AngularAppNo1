@@ -30,6 +30,8 @@ layer base {
 
 .btn {
   @apply font-bold py-4 px-4 rounded;
+  &-group{
+  }
 }
 
 .btn-green, .btn-success {
@@ -39,6 +41,7 @@ layer base {
     @apply bg-green-700;
   }
 }
+
 .btn-red, .btn-danger {
   @apply bg-red-500 text-white;
 
@@ -78,10 +81,14 @@ layer base {
 }
 
 .shopping-list-item {
-  @apply flex rounded-md py-4 text-sm font-medium text-yellow-200 third-bg-color  hover:bg-orange-500 hover:text-white;
+  @apply block rounded-md py-4 text-sm font-medium text-yellow-200 third-bg-color  hover:bg-orange-500 hover:text-white;
   &-selected {
     @apply bg-orange-400 text-white;
   }
+}
+
+.ingredient-list-item {
+  @apply rounded-md py-4 text-sm font-medium text-yellow-200 third-bg-color;
 }
 
 .dropdown {
@@ -113,12 +120,13 @@ layer base {
   &-link {
     @apply flex items-center px-3 py-2;
   }
+
   &-active {
     @apply bg-orange-400 text-white;
   }
 }
 
-.opened .dropdown-toggle{
+.opened .dropdown-toggle {
   @apply bg-orange-400 text-white hover:bg-orange-500;
 }
 
@@ -144,6 +152,15 @@ layer base {
   }
 }
 
-.recipe-detail-placeholder{
-  @apply col-span-6 flex justify-center items-center font-bold py-4 px-4 rounded bg-orange-400 text-yellow-200;
+.recipe-detail {
+  &-placeholder {
+    @apply col-span-6 flex justify-center items-center font-bold py-4 px-4 rounded bg-orange-400 text-yellow-200;
+  }
+&-heading {
+  @apply justify-self-center rounded-md text-xl font-medium  text-fuchsia-950 py-2 px-4;
 }
+  &-ingredients-heading {
+    @apply justify-self-center rounded-md text-lg font-medium  text-fuchsia-950 mt-2 px-4;
+  }
+}
+
