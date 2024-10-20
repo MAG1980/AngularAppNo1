@@ -1,47 +1,53 @@
-<div class="grid grid-rows-8 justify-center items-center">
-  <img class="row-span-4 h-full object-cover" [src]="recipe?.imagePath" alt="{{recipe?.name}}">
-  <h3 class="recipe-detail-heading">{{ recipe?.name }}</h3>
-  <div class="btn-group">
-    <div
-      class="dropdown min-w-44"
-      appDropdown
-    >
-      <button
-        class="dropdown-toggle menu-item grow justify-between items-center btn btn-first">
-        <p class="flex grow justify-center">Manage Recipe</p>
-        <svg class="angle-down h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-             fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                d="m19 9-7 7-7-7"/>
-        </svg>
-      </button>
+<div class="grid grid-rows-3 justify-center items-start">
+  <div>
+    <img class="row-span-4 h-full object-cover" [src]="recipe?.imagePath" alt="{{recipe?.name}}">
+    <h3 class="recipe-detail-heading">{{ recipe?.name }}</h3>
+    <div class="btn-group">
+      <div
+        class="dropdown min-w-44"
+        appDropdown
+      >
+        <button
+          class="dropdown-toggle menu-item grow justify-between items-center btn btn-first">
+          <p class="flex grow justify-center">Manage Recipe</p>
+          <svg class="angle-down h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+               fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                  d="m19 9-7 7-7-7"/>
+          </svg>
+        </button>
 
-      <ul
-        class="dropdown-menu pt-2 top-11"
-        role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-        <!-- Active: "bg-gray-100", Not Active: "" -->
-        <li class="dropdown-menu-item">
-          <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-             id="user-menu-item-0">
-            To Shopping List</a>
-        </li>
-        <li class="dropdown-menu-item">
-          <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-             id="user-menu-item-1">
-            Edit Recipe
-          </a>
-        </li>
-        <li class="dropdown-menu-item">
-          <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
-             id="user-menu-item-2">
-            Delete Recipe
-          </a>
-        </li>
-      </ul>
+        <ul
+          class="dropdown-menu pt-2 top-11"
+          role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+          <!-- Active: "bg-gray-100", Not Active: "" -->
+          <li class="dropdown-menu-item">
+            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+               id="user-menu-item-0">
+              To Shopping List</a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+               id="user-menu-item-1">
+              Edit Recipe
+            </a>
+          </li>
+          <li class="dropdown-menu-item">
+            <a href="#" class="menu-item block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+               id="user-menu-item-2">
+              Delete Recipe
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="bg-gray-300 my-2 py-4 px-2">{{ recipe?.description }}</div>
-  <div class="recipe-detail-ingredients-heading">Ingredients</div>
+  <div class="h-full bg-gray-300 my-2 py-2 px-2">
+    <h4 class="text-lg mb-2">Description</h4>
+    <p class="indent-5 text-justify">{{ recipe?.description }}</p>
+  </div>
+<div class="pt-4">
+  <h3 class="recipe-detail-ingredients-heading">Ingredients</h3>
   <ul>
     <li
       [ngClass]="{'ingredient-list-item mt-1':true}"
@@ -49,4 +55,5 @@
       <app-shopping-list-item [ingredient]="recipeIngredient"/>
     </li>
   </ul>
+</div>
 </div>
