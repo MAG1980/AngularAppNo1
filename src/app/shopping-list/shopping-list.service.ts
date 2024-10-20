@@ -19,11 +19,12 @@ export class ShoppingListService {
 
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient)
-    this.ingredientsIsChanged.emit(this.ingredients)
+    this.ingredientsIsChanged.emit(this.ingredients.slice())
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients)
+    this.ingredientsIsChanged.emit(this.ingredients.slice())
   }
 
   setSelectedIngredient(ingredient: Ingredient) {
@@ -33,6 +34,6 @@ export class ShoppingListService {
 
   deleteIngredient() {
     this.ingredients = this.ingredients.filter((ingredient) => ingredient.name !== this.selectedIngredient?.name)
-    this.ingredientsIsChanged.emit(this.ingredients)
+    this.ingredientsIsChanged.emit(this.ingredients.slice())
   }
 }
