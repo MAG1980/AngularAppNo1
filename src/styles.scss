@@ -102,7 +102,7 @@ layer base {
     animation: entering ease-out .1s;
 
     &-item {
-      @apply rounded-md;
+      @apply flex rounded-md;
       &:hover {
         @apply text-white first-bg-color
       }
@@ -116,9 +116,12 @@ layer base {
 }
 
 .menu-item {
-  @apply flex rounded-md text-sm font-medium text-yellow-200  hover:bg-orange-500 hover:text-white;
-  &-link {
-    @apply flex items-center px-3 py-2;
+  @apply flex flex-grow rounded-md text-sm font-medium text-yellow-200  hover:bg-orange-500 hover:text-white;
+  &-link{
+    @apply flex items-center  py-2 px-4 text-sm;
+  }
+  &-button {
+    @apply items-center  py-4 px-4 text-sm;
   }
 
   &-active {
