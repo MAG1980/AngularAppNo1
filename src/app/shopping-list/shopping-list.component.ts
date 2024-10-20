@@ -27,7 +27,6 @@ export class ShoppingListComponent implements OnInit {
     })
     this.shoppingListService.selectedIngredientIsChanged.subscribe((ingredient) => {
       this.selectedIngredient = ingredient
-      console.log({ selectedIngredient: this.selectedIngredient })
     })
   }
 

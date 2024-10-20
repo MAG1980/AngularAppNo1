@@ -29,12 +29,10 @@ export class ShoppingListService {
   setSelectedIngredient(ingredient: Ingredient) {
     this.selectedIngredient = ingredient
     this.selectedIngredientIsChanged.emit(this.selectedIngredient)
-    console.log(ingredient)
   }
 
   deleteIngredient() {
     this.ingredients = this.ingredients.filter((ingredient) => ingredient.name !== this.selectedIngredient?.name)
     this.ingredientsIsChanged.emit(this.ingredients)
-    console.log({ingredients: this.ingredients})
   }
 }
