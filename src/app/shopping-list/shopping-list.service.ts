@@ -8,8 +8,10 @@ export class ShoppingListService {
   private ingredients: Ingredient[] = [new Ingredient("Apples", 5), new Ingredient("Tomatoes", 10)];
   ingredientsIsChanged = new EventEmitter<Ingredient[]>()
   selectedIngredient: Ingredient | null = null
+  selectedIngredientIsChanged = new EventEmitter<Ingredient>()
 
-  constructor() { }
+  constructor() {
+  }
 
   getIngredients() {
     return [...this.ingredients]
@@ -22,6 +24,7 @@ export class ShoppingListService {
 
   setSelectedIngredient(ingredient: Ingredient) {
     this.selectedIngredient = ingredient
+    this.selectedIngredientIsChanged.emit(this.selectedIngredient)
     console.log(ingredient)
   }
 

@@ -70,10 +70,17 @@ layer base {
   }
 }
 
-.recipe-item, .shopping-list-item{
-  @apply third-bg-color p-4 rounded-md;
+.recipe-item {
+  @apply block third-bg-color p-4 rounded-md;
   &:hover {
     @apply first-bg-color;
+  }
+}
+
+.shopping-list-item {
+  @apply flex rounded-md py-4 text-sm font-medium text-yellow-200 third-bg-color  hover:bg-orange-500 hover:text-white;
+  &-selected {
+    @apply bg-orange-400 text-white;
   }
 }
 
@@ -82,6 +89,7 @@ layer base {
   &-toggle {
     @apply text-yellow-200 bg-orange-300 hover:bg-orange-500 z-20 relative;
   }
+
   &-menu {
     @apply transition-all opacity-0 scale-95 absolute right-0 z-0 w-full origin-top-right rounded-b-md third-bg-color shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
     animation: entering ease-out .1s;

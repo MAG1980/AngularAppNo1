@@ -6,10 +6,12 @@
   </div>
   <ul class="shopping-list-group">
     <app-shopping-list-item
-      [parentClass]="'shopping-list-item mt-2.5'"
       *ngFor="let ingredient of ingredients"
       (click)="selectIngredient(ingredient)"
       [ingredient]="ingredient"
+      [ngClass]="{
+      'shopping-list-item mt-2.5':true,
+      'shopping-list-item-selected':ingredient.name===selectedIngredient?.name}"
     />
   </ul>
 </div>

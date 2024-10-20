@@ -14,5 +14,4 @@ import { Ingredient } from "../../shared/ingredient.model";
 })
 export class ShoppingListItemComponent {
   @Input()  ingredient!: Ingredient
-  @Input()  parentClass!: string
 }
