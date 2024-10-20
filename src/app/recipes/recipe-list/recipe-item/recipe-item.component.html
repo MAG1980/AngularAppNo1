@@ -1,8 +1,9 @@
 <a
   class="grid grid-cols-2 gap-x-2 recipe-item"
   href="#"
+  (click)="onSelected()"
 >
-  <div class="" (click)="onSelected()">
+  <div>
     <h4>{{ recipe.name }}</h4>
     <p class="">{{ recipe.description }}</p>
   </div>
