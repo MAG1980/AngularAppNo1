@@ -1,27 +1,19 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { MenuNavigationPayload } from "../common/MenuNavigationPayload.type";
+import { Component } from '@angular/core';
 import { NgClass } from "@angular/common";
 import { DropdownDirective } from "../shared/directives/dropdown.directive.";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     NgClass,
-    DropdownDirective
+    DropdownDirective,
+    RouterLinkActive,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Output() changeCurrentSection = new EventEmitter<'recipes' | 'shoppingList' | undefined>()
-  currentSection: MenuNavigationPayload = 'recipes';
-
-  setCurrentSection($event: MouseEvent) {
-    const element = $event.target as HTMLAnchorElement;
-    const section = element.dataset['section'] as MenuNavigationPayload;
-    this.currentSection = section;
-    this.changeCurrentSection.emit(section);
-  }
-
 }

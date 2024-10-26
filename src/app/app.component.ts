@@ -5,7 +5,6 @@ import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { HeaderComponent } from "./header/header.component";
 import { NgIf } from "@angular/common";
-import { MenuNavigationPayload } from "./common/MenuNavigationPayload.type";
 
 @Component({
   selector: 'app-root',
@@ -16,9 +15,4 @@ import { MenuNavigationPayload } from "./common/MenuNavigationPayload.type";
 })
 export class AppComponent {
   title = 'AngularAppNo1';
-  currentSection: MenuNavigationPayload = 'recipes';
-
-  setCurrentSection($event: MenuNavigationPayload) {
-    this.currentSection = $event as unknown as MenuNavigationPayload;
-  }
 }

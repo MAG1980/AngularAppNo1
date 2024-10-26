@@ -1,13 +1,8 @@
 <main  class="font-color-one">
-  <app-header (changeCurrentSection)="setCurrentSection($event)"/>
+  <app-header/>
   <div class="container mx-auto px-5 py-5">
     <div class="flex justify-between text-center gap-x-7">
-      <app-shopping-list
-        *ngIf="currentSection === 'shoppingList'"
-      />
-      <app-recipes
-        *ngIf="currentSection === 'recipes'"
-      />
+      <router-outlet/>
     </div>
   </div>
   <app-buttons-area/>
