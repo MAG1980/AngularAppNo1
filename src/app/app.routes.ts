@@ -13,6 +13,7 @@ export const routes: Routes = [
   {
     path: 'recipes', component: RecipesComponent, children: [
       { path: '', component: RecipeDetailPlaceholderComponent },
+      { path: 'new', component: RecipeEditComponent },
       { path: ':id', component: RecipeDetailComponent },
       { path: ':id/edit', component: RecipeEditComponent }]
   },
