@@ -5,18 +5,7 @@
   <app-recipe-list
     class="col-span-6"
   />
-  <!--  <app-recipe-detail
-      class="col-span-6"
-    *ngIf="selectedRecipe; else infoText"
-      [recipe]="selectedRecipe"
-    />
-    <ng-template #infoText>
-      <div class="recipe-detail-placeholder">Please select a Recipe</div>
-    </ng-template>-->
   <div class="col-span-6">
-    <router-outlet *ngIf="selectedRecipe;else infoText"/>
-    <ng-template #infoText>
-      <div class="recipe-detail-placeholder">Please select a Recipe</div>
-    </ng-template>
+    <router-outlet />
   </div>
 </div>
