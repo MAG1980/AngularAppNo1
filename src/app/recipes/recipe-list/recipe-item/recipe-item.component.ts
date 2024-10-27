@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgForOf } from "@angular/common";
 import { Recipe } from "../../recipe.model";
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RecipeService } from "../../recipe.service";
 
 @Component({
   selector: 'app-recipe-item',
@@ -16,4 +17,10 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 })
 export class RecipeItemComponent {
   @Input() recipe!: Recipe
+
+  constructor(private recipeService: RecipeService) {}
+
+  onSelectRecipe(recipe: Recipe) {
+    this.recipeService.recipeSelected.emit(recipe)
+  }
 }

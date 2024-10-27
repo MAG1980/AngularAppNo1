@@ -51,5 +51,6 @@ export class RecipeDetailComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.recipeParamsSubscription.unsubscribe()
+    this.recipeService.recipeSelected.emit(null)
   }
 }

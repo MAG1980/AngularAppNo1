@@ -162,7 +162,7 @@ layer base {
 
 .recipe-detail {
   &-placeholder {
-    @apply col-span-6 flex justify-center items-center font-bold py-4 px-4 rounded bg-orange-400 text-yellow-200;
+    @apply col-span-6 h-full flex justify-center items-center font-bold py-4 px-4 rounded bg-orange-400 text-yellow-200;
   }
 
   &-heading {
