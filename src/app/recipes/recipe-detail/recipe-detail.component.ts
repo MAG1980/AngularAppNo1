@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DropdownDirective } from "../../shared/directives/dropdown.directive.";
 import { Recipe } from "../recipe.model";
 import { ShoppingListItemComponent } from "../../shopping-list/shopping-list-item/shopping-list-item.component";
@@ -21,20 +21,22 @@ import { Subscription } from "rxjs";
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.scss'
 })
-export class RecipeDetailComponent implements OnDestroy {
+export class RecipeDetailComponent implements OnInit, OnDestroy {
   recipe: Recipe | null = null
-  recipeParamsSubscription: Subscription
+  recipeParamsSubscription!: Subscription
+  recipeId: number | null = null
 
   constructor(
     private recipeService: RecipeService,
     private route: ActivatedRoute
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.recipeParamsSubscription = this.route.params
       .subscribe(params => {
-        const id = +params['id']
-        this.recipe = this.recipeService.getRecipe(id) || null
+        this.recipeId = +params['id']
+        this.recipe = this.recipeService.getRecipe(this.recipeId) || null
       })
-    console.log(this.recipe)
   }
 
   deleteRecipe() {
@@ -51,6 +53,5 @@ export class RecipeDetailComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.recipeParamsSubscription.unsubscribe()
-    this.recipeService.recipeSelected.emit(null)
   }
 }
