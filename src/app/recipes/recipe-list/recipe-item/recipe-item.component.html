@@ -1,6 +1,8 @@
 <a
   class="grid grid-cols-2 gap-x-2 recipe-item"
-  (click)="onSelected()"
+  [routerLink]="[recipe.id]"
+  routerLinkActive="recipe-item-active"
+  [routerLinkActiveOptions]="{exact:true}"
 >
   <div>
     <h4>{{ recipe.name }}</h4>

@@ -9,12 +9,14 @@ import { ShoppingListService } from "../shopping-list/shopping-list.service";
 export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'A Test1 Recipe',
       'This is a test1',
       'https://attuale.ru/wp-content/uploads/2018/10/49-1.jpg',
       [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)]
     ),
     new Recipe(
+      2,
       'A Test2 Recipe',
       'This is a test2',
       'https://attuale.ru/wp-content/uploads/2018/10/49-2.jpg',
@@ -31,6 +33,11 @@ export class RecipeService {
     //Применение метода slice() для создания копии массива
     return this.recipes.slice();
   }
+
+  getRecipe(id: number) {
+    return this.recipes.find((recipe) => recipe.id === id)
+  }
+
 
   deleteRecipe(recipe: Recipe) {
     this.recipes.splice(this.recipes.indexOf(recipe), 1)

@@ -4,6 +4,7 @@ import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
 import { RecipeService } from "./recipe.service";
 import { Recipe } from "./recipe.model";
 import { NgIf } from "@angular/common";
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-recipes',
@@ -11,7 +12,8 @@ import { NgIf } from "@angular/common";
   imports: [
     RecipeListComponent,
     RecipeDetailComponent,
-    NgIf
+    NgIf,
+    RouterOutlet
   ],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.scss',

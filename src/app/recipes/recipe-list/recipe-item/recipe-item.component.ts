@@ -1,23 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { NgForOf } from "@angular/common";
 import { Recipe } from "../../recipe.model";
-import { RecipeService } from "../../recipe.service";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-recipe-item',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './recipe-item.component.html',
   styleUrl: './recipe-item.component.scss'
 })
 export class RecipeItemComponent {
   @Input() recipe!: Recipe
-
-  constructor(private recipeService: RecipeService) {}
-
-  onSelected() {
-    this.recipeService.recipeSelected.emit(this.recipe)
-  }
 }

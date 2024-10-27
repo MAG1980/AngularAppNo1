@@ -1,7 +1,10 @@
-<div class="grid grid-rows-3 justify-center items-start">
+<div
+  class="grid grid-rows-3 justify-center items-start"
+  *ngIf="recipe; else placeholder"
+>
   <div>
-    <img class="row-span-4 h-full object-cover" [src]="recipe?.imagePath" alt="{{recipe?.name}}">
-    <h3 class="recipe-detail-heading">{{ recipe?.name }}</h3>
+    <img class="row-span-4 h-full object-cover" [src]="recipe.imagePath" alt="{{recipe.name}}">
+    <h3 class="recipe-detail-heading">{{ recipe.name }}</h3>
     <div class="btn-group">
       <div
         class="dropdown min-w-44"
@@ -34,7 +37,8 @@
             </button>
           </li>
           <li class="dropdown-menu-item">
-            <button
+            <a
+              [routerLink]="['edit']"
               type="button"
               class="menu-item menu-item-button"
               role="menuitem"
@@ -42,7 +46,7 @@
               id="user-menu-item-1"
             >
               Edit Recipe
-            </button>
+            </a>
           </li>
           <li class="dropdown-menu-item">
             <button
@@ -62,16 +66,20 @@
   </div>
   <div class="h-full bg-gray-300 my-2 py-2 px-2">
     <h4 class="text-lg mb-2">Description</h4>
-    <p class="indent-5 text-justify">{{ recipe?.description }}</p>
+    <p class="indent-5 text-justify">{{ recipe.description }}</p>
   </div>
   <div class="pt-4">
     <h3 class="recipe-detail-ingredients-heading">Ingredients</h3>
     <ul>
       <li
         [ngClass]="{'ingredient-list-item mt-1':true}"
-        *ngFor="let recipeIngredient of recipe?.ingredients">
+        *ngFor="let recipeIngredient of recipe.ingredients">
         <app-shopping-list-item [ingredient]="recipeIngredient"/>
       </li>
     </ul>
   </div>
 </div>
+
+<ng-template #placeholder>
+  <div class="recipe-detail-placeholder">Please select a Recipe</div>
+</ng-template>

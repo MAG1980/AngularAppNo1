@@ -2,10 +2,16 @@ import { AppComponent } from "./app.component";
 import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { Routes } from "@angular/router";
+import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
+import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
 
-export const routes:Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path: 'recipes', component: RecipesComponent },
+  {
+    path: 'recipes', component: RecipesComponent, children: [
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent }]
+  },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: '**', component: AppComponent }
 ]
