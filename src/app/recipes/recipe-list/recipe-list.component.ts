@@ -3,13 +3,15 @@ import { Recipe } from "../recipe.model";
 import { RecipeItemComponent } from "./recipe-item/recipe-item.component";
 import { NgForOf } from "@angular/common";
 import { RecipeService } from "../recipe.service";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
   imports: [
     RecipeItemComponent,
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.scss'
