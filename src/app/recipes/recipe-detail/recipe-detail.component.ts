@@ -4,7 +4,7 @@ import { Recipe } from "../recipe.model";
 import { ShoppingListItemComponent } from "../../shopping-list/shopping-list-item/shopping-list-item.component";
 import { NgClass, NgForOf, NgIf } from "@angular/common";
 import { RecipeService } from "../recipe.service";
-import { ActivatedRoute, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -28,6 +28,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private recipeService: RecipeService,
+    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -49,6 +50,11 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     if (this.recipe?.ingredients) {
       this.recipeService.addToShoppingList(this.recipe.ingredients)
     }
+  }
+
+  onRecipeEditing() {
+    // this.router.navigate(['../', this.recipeId, 'edit'], { relativeTo: this.route })
+    this.router.navigate(['edit'], { relativeTo: this.route })
   }
 
   ngOnDestroy() {

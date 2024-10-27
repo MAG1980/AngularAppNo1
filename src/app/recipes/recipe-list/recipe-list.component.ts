@@ -3,7 +3,7 @@ import { Recipe } from "../recipe.model";
 import { RecipeItemComponent } from "./recipe-item/recipe-item.component";
 import { NgForOf } from "@angular/common";
 import { RecipeService } from "../recipe.service";
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-recipe-list',
@@ -19,13 +19,21 @@ import { RouterLink } from "@angular/router";
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = []
 
-  constructor(private recipeService: RecipeService) {
-    this.recipeService.recipesIsChanged.subscribe((recipes)=>{
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.recipeService.recipesIsChanged.subscribe((recipes) => {
       this.recipes = recipes
     })
   }
 
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes()
+  }
+
+  onRecipeAdding() {
+    this.router.navigate(['new'], { relativeTo: this.route })
   }
 }

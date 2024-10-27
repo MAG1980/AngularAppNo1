@@ -37,16 +37,16 @@
             </button>
           </li>
           <li class="dropdown-menu-item">
-            <a
-              [routerLink]="['edit']"
+            <button
               type="button"
               class="menu-item menu-item-button"
               role="menuitem"
               tabindex="-1"
               id="user-menu-item-1"
+              (click)="onRecipeEditing()"
             >
               Edit Recipe
-            </a>
+            </button>
           </li>
           <li class="dropdown-menu-item">
             <button
