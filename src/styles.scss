@@ -174,3 +174,9 @@ layer base {
   }
 }
 
+button[disabled] {
+  @apply cursor-not-allowed bg-gray-500;
+  &:hover {
+    @apply bg-gray-500;
+  }
+}

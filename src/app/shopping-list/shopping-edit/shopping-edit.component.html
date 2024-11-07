@@ -1,13 +1,18 @@
 <div class="shopping-edit">
-  <form>
+  <form
+    #form="ngForm"
+    (ngSubmit)="addIngredient(form)">
     <div class="grid grid-cols-12 justify-between py-1.5">
       <div class="col-span-12 md:col-span-5">
         <div class="flex flex-col items-start">
           <label for="name">Name</label>
           <input
+            id="name"
             class="w-full form-control"
-            id="name" type="text"
-            #name
+            type="text"
+            name="name"
+            ngModel
+            required
           />
         </div>
       </div>
@@ -16,14 +21,18 @@
           <label for="amount">Amount</label>
           <input
             class="w-full form-control" id="amount" type="number"
-            #amount
+            ngModel
+            name="amount"
+            required
+            pattern="^[1-9]+[0-9]*$"
           /></div>
       </div>
     </div>
     <div class="flex flex-col md:flex-row justify-between gap-1 py-1">
       <button
-        class="btn btn-success basis-1/3" type="button"
-        (click)="addIngredient()"
+        class="btn btn-success basis-1/3"
+        type="submit"
+        [disabled]="form.invalid"
       >Add
       </button>
       <button
@@ -33,7 +42,7 @@
       </button>
       <button
         class="btn btn-primary basis-1/3" type="button"
-        (click)="clearInputs()"
+        (click)="clearInputs(form)"
       >Clear
       </button>
     </div>
