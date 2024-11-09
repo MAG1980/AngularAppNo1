@@ -7,11 +7,11 @@
   <ul class="shopping-list-group">
     <app-shopping-list-item
       *ngFor="let ingredient of ingredients"
-      (click)="selectIngredient(ingredient)"
+      (click)="onEditItem(ingredient)"
       [ingredient]="ingredient"
       [ngClass]="{
       'shopping-list-item mt-2.5':true,
-      'shopping-list-item-selected':ingredient.name===selectedIngredient?.name}"
+      'shopping-list-item-selected':ingredient.id===selectedIngredient.id}"
     />
   </ul>
 </div>

@@ -2,6 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,14 @@ export class RecipeService {
       'A Test1 Recipe',
       'This is a test1',
       'https://attuale.ru/wp-content/uploads/2018/10/49-1.jpg',
-      [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)]
+      [new Ingredient(uuidv4(), 'Apples', 5), new Ingredient(uuidv4(), 'Tomatoes', 10)]
     ),
     new Recipe(
       2,
       'A Test2 Recipe',
       'This is a test2',
       'https://attuale.ru/wp-content/uploads/2018/10/49-2.jpg',
-      [new Ingredient('Milk', 1), new Ingredient('Eggs', 10)]
+      [new Ingredient(uuidv4(),'Milk', 1), new Ingredient(uuidv4(),'Eggs', 10)]
     )
   ];
 
