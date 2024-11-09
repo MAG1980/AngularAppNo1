@@ -26,12 +26,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private shoppingListService: ShoppingListService) {
-    this.renderer.listen('window','click',
+    this.renderer.listen('window', 'click',
       (event: Event) => {
-      if(!this.shoppingList.contains(event.target as Node)){
-        console.log('clicked outside')
-        this.clearInputs(this.shoppingListForm)
-      }
+        if (!this.shoppingList.contains(event.target as Node)) {
+          this.clearInputs(this.shoppingListForm)
+        }
       })
   }
 
@@ -80,6 +79,5 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       this.shoppingListService.startedEditing.next({ id: '', name: '', amount: 0 })
       this.editMode = false
     }
-    console.log(this.editMode)
   }
 }

@@ -42,7 +42,5 @@ export class ShoppingListService {
     if ( editedIngredient ) {
       editedIngredient.amount = amount
     }
-    console.log(this.ingredients)
   }
-
 }

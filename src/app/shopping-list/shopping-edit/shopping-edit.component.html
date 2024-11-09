@@ -38,10 +38,10 @@
       >Add
       </button>
       <button
-        *ngIf="editMode"
+        [hidden]="!editMode"
         class="btn btn-success basis-1/3"
         type="button"
-        [disabled]="form.invalid"
+        [disabled]="form.invalid||!form.dirty"
         (click)="saveIngredientChanges()"
       >Save changes
       </button>
