@@ -48,6 +48,7 @@
       <button
         class="btn btn-danger basis-1/3" type="button"
         (click)="deleteItem()"
+        [disabled]="!editMode"
       >Delete
       </button>
       <button
