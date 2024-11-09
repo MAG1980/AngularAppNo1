@@ -36,11 +36,14 @@ export class ShoppingListService {
     this.ingredientsIsChanged.emit(this.ingredients.slice())
   }
 
-  saveIngredientChanges(id: string, amount: number) {
+  saveIngredientChanges(ingredient: Ingredient) {
     let editedIngredient = this.ingredients
-      .find(ingredient => ingredient.id === id)
-    if ( editedIngredient ) {
-      editedIngredient.amount = amount
+      .find(item => item.id === ingredient.id)
+    if (editedIngredient) {
+      editedIngredient.amount = ingredient.amount
+      editedIngredient.name = ingredient.name
     }
+    console.log({ editedIngredient })
+    console.log(this.ingredients)
   }
 }

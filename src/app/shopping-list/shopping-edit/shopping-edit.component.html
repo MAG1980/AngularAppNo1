@@ -1,7 +1,7 @@
 <div class="shopping-edit">
   <form
     #form="ngForm"
-    (ngSubmit)="addIngredient(form)">
+    (ngSubmit)="onSubmit(form)">
     <div class="grid grid-cols-12 justify-between py-1.5">
       <div class="col-span-12 md:col-span-5">
         <div class="flex flex-col items-start">
@@ -31,19 +31,10 @@
     </div>
     <div class="flex flex-col md:flex-row justify-between gap-1 py-1">
       <button
-        *ngIf="!editMode"
         class="btn btn-success basis-1/3"
         type="submit"
-        [disabled]="form.invalid"
-      >Add
-      </button>
-      <button
-        [hidden]="!editMode"
-        class="btn btn-success basis-1/3"
-        type="button"
         [disabled]="form.invalid||!form.dirty"
-        (click)="saveIngredientChanges()"
-      >Save changes
+      >{{ editMode ? 'Save changes' : 'Add' }}
       </button>
       <button
         class="btn btn-danger basis-1/3" type="button"
