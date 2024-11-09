@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ShoppingListService } from "../shopping-list.service";
 import { Ingredient } from "../../shared/ingredient.model";
 import { FormsModule, NgForm } from "@angular/forms";
@@ -21,8 +21,18 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode: boolean = false
   editedItem!: Ingredient
   @ViewChild('form') shoppingListForm!: NgForm
+  @Input('shoppingList') shoppingList!: HTMLDivElement
 
-  constructor(private shoppingListService: ShoppingListService) {
+  constructor(
+    private renderer: Renderer2,
+    private shoppingListService: ShoppingListService) {
+    this.renderer.listen('window','click',
+      (event: Event) => {
+      if(!this.shoppingList.contains(event.target as Node)){
+        console.log('clicked outside')
+        this.clearInputs(this.shoppingListForm)
+      }
+      })
   }
 
   ngOnInit() {
@@ -51,7 +61,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   clearInputs(form: NgForm) {
     form.reset()
-    console.log(this.editMode)
     this.shoppingListService.startedEditing.next({ id: '', name: '', amount: 0 })
     this.editMode = false
   }
