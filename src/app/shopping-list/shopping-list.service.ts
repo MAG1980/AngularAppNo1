@@ -43,7 +43,5 @@ export class ShoppingListService {
       editedIngredient.amount = ingredient.amount
       editedIngredient.name = ingredient.name
     }
-    console.log({ editedIngredient })
-    console.log(this.ingredients)
   }
 }
