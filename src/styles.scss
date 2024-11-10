@@ -29,7 +29,7 @@ layer base {
 }
 
 .btn {
-  @apply font-bold py-4 px-4 rounded;
+  @apply font-bold py-3 px-3 rounded;
   &-group {
   }
 }
@@ -179,4 +179,37 @@ button[disabled] {
   &:hover {
     @apply bg-gray-500;
   }
+}
+
+.recipe {
+  &-item {
+    &-button {
+      @apply text-base
+    }
+  }
+
+  &-edit {
+    @apply flex flex-col items-center md:flex-row items-start text-fuchsia-950;
+    &-input {
+      outline: 1px solid orange;
+      padding: 5px;
+      @apply rounded w-full
+    }
+
+    &-label {
+      @apply flex-grow text-start px-1.5
+    }
+
+    &-description {
+      @apply grid col-span-full grid-cols-12 text-fuchsia-950;
+    }
+  }
+}
+
+.recipe-edit-input-responsive {
+  @apply md:w-3/5 lg:w-3/4
+}
+
+.form-group {
+  @apply py-1.5
 }
