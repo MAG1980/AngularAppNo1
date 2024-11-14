@@ -2,6 +2,7 @@
   <form
     class="grid grid-cols-12 justify-between"
     (ngSubmit)="onSubmit()"
+    [formGroup]="recipeForm"
   >
     <div class="col-span-12">
       <div class="flex flex-col md:flex-row justify-between">
@@ -32,7 +33,7 @@
 
     <div class="col-span-12">
       <div class="form-group recipe-edit">
-        <label class="recipe-edit-label"  for="imagePath">Image URL</label>
+        <label class="recipe-edit-label" for="imagePath">Image URL</label>
         <input
           id="imagePath"
           class="form-control recipe-edit-input recipe-edit-input-responsive"
@@ -42,27 +43,40 @@
     </div>
 
     <div class="col-span-12 flex justify-center">
-      <img class="img-responsive w-full" src="http://baconmockup.com/400/300/" alt="bacon"/>
+      <img class="img-responsive w-full" [src]="recipeForm.get('imagePath')?.value" alt="bacon"/>
     </div>
 
-      <div class="form-group recipe-edit-description">
-        <div class="col-span-12 md:col-span-9 mb-1.5 md:my-0">
+    <div
+      class="form-group recipe-edit-ingredients"
+      formArrayName="ingredients"
+    >
+      <div
+        class="flex flex-col md:flex-row  md:items-center md:justify-between mb-1.5"
+        *ngFor="let ingredientControl of getIngredientControls(); let controlName = index"
+        [formGroupName]="controlName"
+      >
+        <div class="basis-7/12">
           <input
             class="form-control recipe-edit-input"
             type="text"
-            formControlName="description">
+            formControlName="name">
         </div>
-        <div class="col-span-12 md:col-span-2 md:col-start-11">
+        <div class="basis-2/12">
           <input
             class="form-control recipe-edit-input"
             type="number"
             formControlName="amount">
         </div>
-        <div class="col-span-12">
-          <button class="btn btn-danger w-full my-1.5">Delete</button>
+        <div class="basis-2/12">
+          <button class="btn btn-danger w-full">Delete</button>
         </div>
       </div>
+    </div>
 
-    <h4 class="col-span-full text-fuchsia-950">Description</h4>
+    <textarea
+      class="form-control recipe-edit-description"
+      rows="3"
+      formControlName="description"></textarea>
+
   </form>
 </div>

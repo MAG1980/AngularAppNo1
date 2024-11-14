@@ -189,15 +189,19 @@ button[disabled] {
   }
 
   &-edit {
-    @apply flex flex-col items-center md:flex-row items-start text-fuchsia-950;
+    @apply flex flex-col items-center md:flex-row  text-fuchsia-950;
     &-input {
       outline: 1px solid orange;
       padding: 5px;
-      @apply rounded w-full
+      @apply rounded w-full p-2.5
     }
 
     &-label {
       @apply flex-grow text-start px-1.5
+    }
+
+    &-ingredients{
+      @apply col-span-full text-fuchsia-950
     }
 
     &-description {
