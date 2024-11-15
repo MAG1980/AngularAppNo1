@@ -9,6 +9,7 @@
         <button
           class="btn btn-success basis-5/12 mb-1.5 md:my-0"
           type="submit"
+          [disabled]="!recipeForm.touched || recipeForm.invalid"
         >Save
         </button>
         <button
@@ -65,6 +66,7 @@
           <input
             class="form-control recipe-edit-input"
             type="number"
+            min="1"
             formControlName="amount">
         </div>
         <div class="basis-2/12">
