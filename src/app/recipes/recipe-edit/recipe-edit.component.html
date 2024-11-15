@@ -68,8 +68,15 @@
             formControlName="amount">
         </div>
         <div class="basis-2/12">
-          <button class="btn btn-danger w-full">Delete</button>
+          <button class="btn btn-danger w-full" type="button">X</button>
         </div>
+      </div>
+      <div class="w-full">
+        <button
+          class="btn btn-success w-full"
+          type="button"
+          (click)="onAddIngredient()"
+        >Add</button>
       </div>
     </div>
 
