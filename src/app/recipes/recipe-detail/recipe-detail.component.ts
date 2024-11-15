@@ -24,7 +24,7 @@ import { Subscription } from "rxjs";
 export class RecipeDetailComponent implements OnInit, OnDestroy {
   recipe: Recipe | null = null
   recipeParamsSubscription!: Subscription
-  recipeId: number | null = null
+  recipeId: string | null = null
 
   constructor(
     private recipeService: RecipeService,
@@ -35,8 +35,10 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.recipeParamsSubscription = this.route.params
       .subscribe(params => {
-        this.recipeId = +params['id']
-        this.recipe = this.recipeService.getRecipe(this.recipeId) || null
+        this.recipeId = params['id']
+        if ( this.recipeId ) {
+          this.recipe = this.recipeService.getRecipe(this.recipeId) || null
+        }
       })
   }
 
@@ -44,6 +46,8 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     if (this.recipe) {
       this.recipeService.deleteRecipe(this.recipe)
     }
+
+    this.router.navigate(['recipes'])
   }
 
   addToShoppingList() {

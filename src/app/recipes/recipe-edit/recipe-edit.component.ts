@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   AbstractControl,
   FormArray,
@@ -10,7 +10,9 @@ import {
   Validators
 } from "@angular/forms";
 import { NgForOf, NgOptimizedImage } from "@angular/common";
+import { v4 as uuidv4 } from 'uuid';
 import { RecipeService } from "../recipe.service";
+import { Recipe } from "../recipe.model";
 
 
 @Component({
@@ -26,15 +28,19 @@ import { RecipeService } from "../recipe.service";
   styleUrl: './recipe-edit.component.scss'
 })
 export class RecipeEditComponent implements OnInit {
-  id!: number
+  id!: string
   editMode = false
   recipeForm!: FormGroup
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private recipeService: RecipeService) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id']
+      this.id = params['id']
       this.editMode = params['id'] != null
       this.initForm()
     })
@@ -83,9 +89,23 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit() {
     console.log(this.recipeForm.value)
+    if ( this.id || this.editMode ) {
+      this.recipeService.updateRecipe(this.id, this.recipeForm.value)
+    } else {
+      this.recipeService.addRecipe(
+        new Recipe(
+          uuidv4(),
+          this.recipeForm.value.name,
+          this.recipeForm.value.description,
+          this.recipeForm.value.imagePath,
+          this.recipeForm.value.ingredients)
+      )
+    }
+    this.router.navigate(['../'], { relativeTo: this.route })
   }
 
   onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route })
   }
 
   onAddIngredient() {
