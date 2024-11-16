@@ -36,9 +36,10 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.shoppingListService.startedEditing.subscribe((ingredient) => {
-      this.editedItem = ingredient
-      this.editMode = true
-      if (ingredient.id) {
+      if (ingredient) {
+        this.editedItem = ingredient
+        this.editMode = true
+        console.log("Edited item:", this.editedItem)
         this.shoppingListForm.setValue({
           name: this.editedItem?.name,
           amount: this.editedItem?.amount
@@ -56,29 +57,29 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       this.editedItem.name = form.value.name
       this.editedItem.amount = form.value.amount
       this.shoppingListService.saveIngredientChanges(this.editedItem)
-      this.shoppingListService.startedEditing.next({ id: '', name: '', amount: 0 })
+      this.shoppingListService.startedEditing.next(null)
     } else {
       this.shoppingListService.addIngredient(
         new Ingredient(uuidv4(), form.value.name.trim(), +form.value.amount)
       )
     }
-    this.onClear()
+    this.onClear(this.shoppingListForm)
   }
 
   clearInputs(form: NgForm) {
-    this.shoppingListService.startedEditing.next({ id: '', name: '', amount: 0 })
-    this.onClear()
+    this.shoppingListService.startedEditing.next(null)
+    this.onClear(form)
   }
 
-  deleteItem() {
+  deleteItem(form: NgForm) {
     if (this.editedItem) {
       this.shoppingListService.deleteIngredient(this.editedItem)
-      this.onClear()
+      this.onClear(form)
     }
   }
 
-  onClear() {
-    this.shoppingListForm.reset()
+  onClear(form: NgForm) {
+    form.reset()
     this.editMode = false
   }
 }

@@ -10,8 +10,8 @@ export class ShoppingListService {
   private ingredients: Ingredient[] = [new Ingredient(uuidv4(), "Apples", 5), new Ingredient(uuidv4(), "Tomatoes", 10
   )];
   ingredientsIsChanged = new EventEmitter<Ingredient[]>()
-  startedEditing = new Subject<Ingredient>()
-  selectedIngredientIsChanged = new EventEmitter<Ingredient>()
+  startedEditing = new Subject<Ingredient|null>()
+  selectedIngredientIsChanged = new Subject<Ingredient>()
 
   constructor() {
   }
