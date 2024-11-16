@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
 import { v4 as uuidv4 } from 'uuid';
@@ -26,7 +26,7 @@ export class RecipeService {
     )
   ];
 
-  recipeSelected = new EventEmitter<Recipe | null>()
+  recipeSelected = new Subject<Recipe | null>()
   recipesIsChanged = new Subject<Recipe[]>()
 
   constructor(private shoppingListService: ShoppingListService) { }
@@ -64,7 +64,7 @@ export class RecipeService {
   deleteRecipe(recipe: Recipe) {
     this.recipes.splice(this.recipes.indexOf(recipe), 1)
     this.recipesIsChanged.next(this.recipes.slice())
-    this.recipeSelected.emit(null)
+    this.recipeSelected.next(null)
   }
 
   addToShoppingList(ingredients: Ingredient[]) {

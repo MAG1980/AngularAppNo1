@@ -39,12 +39,15 @@
           id="imagePath"
           class="form-control recipe-edit-input recipe-edit-input-responsive"
           type="text"
-          formControlName="imagePath">
+          formControlName="imagePath"
+          #imagePath
+        >
       </div>
     </div>
 
     <div class="col-span-12 flex justify-center">
-      <img class="img-responsive w-full" [src]="recipeForm.get('imagePath')?.value" alt="bacon"/>
+<!--      <img class="img-responsive w-full" [src]="recipeForm.get('imagePath')?.value" alt="bacon"/>-->
+      <img class="img-responsive w-full" [src]="imagePath.value" alt="bacon"/>
     </div>
 
     <div
@@ -70,7 +73,11 @@
             formControlName="amount">
         </div>
         <div class="basis-2/12">
-          <button class="btn btn-danger w-full" type="button">X</button>
+          <button
+            class="btn btn-danger w-full"
+            type="button"
+            (click)="onDeleteIngredient(controlName)"
+          >X</button>
         </div>
       </div>
       <div class="w-full">
