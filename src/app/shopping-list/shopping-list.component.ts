@@ -20,7 +20,7 @@ import { Subscription } from "rxjs";
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[] = []
-  selectedIngredient: Ingredient|null = null
+  selectedIngredient: Ingredient | null = null
   ingredientsIsChangedSubscription!: Subscription
   startedEditingSubscription!: Subscription
 
@@ -48,5 +48,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.selectedIngredient = ingredient
     this.shoppingListService.selectedIngredientIsChanged.next(ingredient)
     console.log("Selected item:", this.selectedIngredient)
+  }
+
+  onGroupItems() {
+    this.shoppingListService.groupIngredients()
   }
 }
