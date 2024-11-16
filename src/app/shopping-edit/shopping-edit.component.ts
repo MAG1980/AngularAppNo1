@@ -1,17 +1,19 @@
-import { Component, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ShoppingListService } from "../shopping-list.service";
-import { Ingredient } from "../../shared/ingredient.model";
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { NgIf } from "@angular/common";
 import { v4 as uuidv4 } from 'uuid';
+import { Ingredient } from "../shared/ingredient.model";
+import { ShoppingListService } from "./shopping-list/shopping-list.service";
+import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 
 @Component({
   selector: 'app-shopping-edit',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    ShoppingListComponent
   ],
   templateUrl: './shopping-edit.component.html',
   styleUrl: './shopping-edit.component.scss'
@@ -21,25 +23,25 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   editMode: boolean = false
   editedItem!: Ingredient
   @ViewChild('form') shoppingListForm!: NgForm
-  @Input('shoppingList') shoppingList!: HTMLDivElement
+  @ViewChild('shoppingEdit') shoppingEdit!: ElementRef
 
   constructor(
     private renderer: Renderer2,
     private shoppingListService: ShoppingListService) {
-    this.renderer.listen('window', 'click',
-      (event: Event) => {
-        if (!this.shoppingList.contains(event.target as Node)) {
-          this.clearInputs(this.shoppingListForm)
-        }
-      })
   }
 
   ngOnInit() {
+    this.renderer.listen('window', 'click',
+      (event: Event) => {
+        if (!this.shoppingEdit.nativeElement.contains(event.target as Node)) {
+          this.clearInputs(this.shoppingListForm)
+        }
+      })
+
     this.subscription = this.shoppingListService.startedEditing.subscribe((ingredient) => {
       if (ingredient) {
         this.editedItem = ingredient
         this.editMode = true
-        console.log("Edited item:", this.editedItem)
         this.shoppingListForm.setValue({
           name: this.editedItem?.name,
           amount: this.editedItem?.amount
@@ -81,5 +83,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onClear(form: NgForm) {
     form.reset()
     this.editMode = false
+  }
+
+  onGroupItems() {
+    this.shoppingListService.groupIngredients()
   }
 }

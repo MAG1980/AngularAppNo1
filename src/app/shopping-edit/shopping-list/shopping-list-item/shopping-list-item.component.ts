@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgClass, NgForOf } from "@angular/common";
-import { Ingredient } from "../../shared/ingredient.model";
+import { Ingredient } from "../../../shared/ingredient.model";
 
 @Component({
   selector: 'app-shopping-list-item',

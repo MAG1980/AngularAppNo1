@@ -1,16 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ShoppingEditComponent } from "./shopping-edit/shopping-edit.component";
-import { Ingredient } from "../shared/ingredient.model";
 import { NgClass, NgForOf } from "@angular/common";
+import { Subscription } from "rxjs";
 import { ShoppingListService } from "./shopping-list.service";
 import { ShoppingListItemComponent } from "./shopping-list-item/shopping-list-item.component";
-import { Subscription } from "rxjs";
+import { Ingredient } from "../../shared/ingredient.model";
 
 @Component({
   selector: 'app-shopping-list',
   standalone: true,
   imports: [
-    ShoppingEditComponent,
     NgForOf,
     ShoppingListItemComponent,
     NgClass
@@ -47,10 +45,5 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.shoppingListService.startedEditing.next(ingredient)
     this.selectedIngredient = ingredient
     this.shoppingListService.selectedIngredientIsChanged.next(ingredient)
-    console.log("Selected item:", this.selectedIngredient)
-  }
-
-  onGroupItems() {
-    this.shoppingListService.groupIngredients()
   }
 }

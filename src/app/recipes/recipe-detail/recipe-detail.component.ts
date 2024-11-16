@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DropdownDirective } from "../../shared/directives/dropdown.directive.";
 import { Recipe } from "../recipe.model";
-import { ShoppingListItemComponent } from "../../shopping-list/shopping-list-item/shopping-list-item.component";
 import { NgClass, NgForOf, NgIf } from "@angular/common";
 import { RecipeService } from "../recipe.service";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { Subscription } from "rxjs";
+import {
+  ShoppingListItemComponent
+} from "../../shopping-edit/shopping-list/shopping-list-item/shopping-list-item.component";
 
 @Component({
   selector: 'app-recipe-detail',
