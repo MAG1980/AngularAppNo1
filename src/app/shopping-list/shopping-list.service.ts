@@ -32,7 +32,7 @@ export class ShoppingListService {
 
 
   deleteIngredient(item: Ingredient) {
-    this.ingredients = this.ingredients.filter((ingredient) => ingredient.name !== item.name)
+    this.ingredients = this.ingredients.filter((ingredient) => ingredient.id !== item.id)
     this.ingredientsIsChanged.emit(this.ingredients.slice())
   }
 
