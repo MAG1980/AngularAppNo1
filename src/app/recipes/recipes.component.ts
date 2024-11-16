@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
-import { RecipeService } from "./recipe.service";
 import { NgIf } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 
@@ -15,8 +14,7 @@ import { RouterOutlet } from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.scss',
-  providers: [RecipeService],
+  styleUrl: './recipes.component.scss'
 })
 export class RecipesComponent {
 }
