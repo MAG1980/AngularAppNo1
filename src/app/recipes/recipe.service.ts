@@ -29,7 +29,14 @@ export class RecipeService {
   recipeSelected = new Subject<Recipe | null>()
   recipesIsChanged = new Subject<Recipe[]>()
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private shoppingListService: ShoppingListService) {
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes
+    console.log(recipes)
+    this.recipesIsChanged.next(this.recipes.slice())
+  }
 
   getRecipes() {
     //Применение метода slice() для создания копии массива

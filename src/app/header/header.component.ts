@@ -19,7 +19,12 @@ import { DataStorageService } from "../common/data-storage.service";
 export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService) {
   }
-  onSaveRecipes(){
+
+  onSaveRecipes() {
     this.dataStorageService.storeRecipes()
+  }
+
+  onFetchRecipes() {
+    this.dataStorageService.fetchRecipes()
   }
 }
