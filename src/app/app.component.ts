@@ -8,7 +8,12 @@ import { NgIf } from "@angular/common";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RecipesComponent, ButtonsAreaComponent, HeaderComponent, NgIf],
+  imports: [
+    RouterOutlet,
+    RecipesComponent,
+    ButtonsAreaComponent,
+    HeaderComponent,
+    NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
