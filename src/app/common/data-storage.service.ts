@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { RecipeService } from "../recipes/recipe.service";
 import { API_URL } from "./constants";
 import { Recipe } from "../recipes/recipe.model";
+import { map } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,7 @@ export class DataStorageService {
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes()
-    return this.http.put(
-      `${ API_URL } /recipes.json`,
+    return this.http.put(`${ API_URL }/recipes.json`,
       recipes)
       .subscribe(response => {
         console.log(response)
@@ -22,9 +22,16 @@ export class DataStorageService {
   }
 
   fetchRecipes() {
-    this.http.get<Recipe[]>(
-      `${ API_URL }/recipes.json`
-    )
+    this.http.get<Recipe[]>(`${ API_URL }/recipes.json`)
+      .pipe(
+        map(recipes => {
+          return recipes.map(recipe => {
+            return {
+              ...recipe, ingredients: recipe.ingredients ?? []
+            }
+          })
+        })
+      )
       .subscribe((recipes) => {
         this.recipeService.setRecipes(recipes)
       })

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from "./recipe.model";
 import { Ingredient } from "../shared/ingredient.model";
-import { v4 as uuidv4 } from 'uuid';
 import { Subject } from "rxjs";
 import { ShoppingListService } from "../shopping-edit/shopping-list/shopping-list.service";
 
@@ -9,22 +8,7 @@ import { ShoppingListService } from "../shopping-edit/shopping-list/shopping-lis
   providedIn: 'root'
 })
 export class RecipeService {
-  private recipes: Recipe[] = [
-    new Recipe(
-      uuidv4(),
-      'A Test1 Recipe',
-      'This is a test1',
-      'https://attuale.ru/wp-content/uploads/2018/10/49-1.jpg',
-      [new Ingredient(uuidv4(), 'Apples', 5), new Ingredient(uuidv4(), 'Tomatoes', 10)]
-    ),
-    new Recipe(
-      uuidv4(),
-      'A Test2 Recipe',
-      'This is a test2',
-      'https://attuale.ru/wp-content/uploads/2018/10/49-2.jpg',
-      [new Ingredient(uuidv4(), 'Milk', 1), new Ingredient(uuidv4(), 'Eggs', 10)]
-    )
-  ];
+  private recipes: Recipe[] = [];
 
   recipeSelected = new Subject<Recipe | null>()
   recipesIsChanged = new Subject<Recipe[]>()
@@ -55,8 +39,6 @@ export class RecipeService {
       updatedRecipe.description = recipeFormValue.description
       updatedRecipe.imagePath = recipeFormValue.imagePath
       updatedRecipe.ingredients = recipeFormValue.ingredients
-      console.log({ updatedRecipe })
-      console.log(this.recipes)
     } else {
       console.log('Recipe with id ' + id + ' not found')
     }
